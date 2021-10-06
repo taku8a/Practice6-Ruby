@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get "/search", to: "searches#search"
 
   resources :chats, only: [:show, :create]
+  resources :groups, except: [:destroy]
+
 end
