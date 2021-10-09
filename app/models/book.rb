@@ -23,6 +23,12 @@ class Book < ApplicationRecord
       Book.where("title LIKE?", "%" + content + "%")
     end
   end
+  
+  def Book.search(search_word)
+    Book.where(["category LIKE?", "#{search_word}"])
+  end
+  
+  
 
 
   scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
